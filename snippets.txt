@@ -1,0 +1,9 @@
+		template <typename T>
+		T value_from_string_map(const std::string& s, const std::unordered_map<std::string, T>& m, const std::string& type_name = "") {
+			std::unordered_map<std::string, T>::const_iterator iter = m.find(s);
+			if (iter != m.end()) {
+				return iter->second;
+			} else {
+				exception::build_throw(s + " not recongized as a "+type_name, "<location here>");
+			}
+		}
